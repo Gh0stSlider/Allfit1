@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AllFIT - Plataforma completa de fitness com treinos personalizados, nutrição, suplementação e acompanhamento profissional. Transforme seu corpo agora!">
+  <meta name="keywords" content="fitness, treino, musculação, nutrição, dieta, suplementos, emagrecimento, hipertrofia, academia, saúde, bem-estar">
+  <meta name="author" content="AllFIT">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://allfit.pt/">
+  <meta property="og:title"       content="AllFIT - Transforme Seu Corpo">
+  <meta property="og:description" content="Plataforma completa de fitness com treinos, nutrição e acompanhamento profissional">
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=630&fit=crop">
+
+  <!-- Twitter -->
+  <meta property="twitter:card"        content="summary_large_image">
+  <meta property="twitter:title"       content="AllFIT - Transforme Seu Corpo">
+  <meta property="twitter:description" content="Plataforma completa de fitness com treinos, nutrição e acompanhamento profissional">
+  <meta property="twitter:image"       content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=630&fit=crop">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💪%3C/text%3E%3C/svg%3E">
+
+  <title>AllFIT - Transforme Seu Corpo | Treinos, Nutrição e Suplementação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="estilos.css">
+
+  <style>
+    /* ── COMO FUNCIONA ──────────────────────────────────────── */
+    .how-section {
+      padding: 100px 40px;
+      background: rgba(255,255,255,0.015);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .how-container { max-width: 1100px; margin: 0 auto; }
+    .how-sub {
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+      font-size: 1rem;
+      margin: 8px 0 60px;
+    }
+    .how-steps {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .how-step {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+    }
+    .how-step:hover {
+      border-color: rgba(255,77,0,0.35);
+      transform: translateY(-6px);
+    }
+    .how-step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: rgba(255,77,0,0.12);
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      line-height: 1;
+      letter-spacing: 2px;
+    }
+    .how-step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    .how-step h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 1.5px;
+      margin: 0 0 10px;
+    }
+    .how-step p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .how-connector {
+      width: 60px;
+      flex-shrink: 0;
+      height: 2px;
+      background: linear-gradient(to right, rgba(255,77,0,0.3), rgba(255,77,0,0.1));
+      align-self: center;
+      margin: 0 4px;
+      position: relative;
+    }
+    .how-connector::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: -4px;
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid rgba(255,77,0,0.4);
+      border-right: 2px solid rgba(255,77,0,0.4);
+      transform: rotate(45deg);
+    }
+    @media (max-width: 768px) {
+      .how-section { padding: 60px 20px; }
+      .how-steps { flex-direction: column; gap: 16px; }
+      .how-connector { width: 2px; height: 30px; margin: 0 auto; align-self: auto;
+        background: linear-gradient(to bottom, rgba(255,77,0,0.3), rgba(255,77,0,0.1)); }
+      .how-connector::after { right: -4px; top: auto; bottom: -4px;
+        transform: rotate(135deg); }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "AllFIT",
+    "description": "Plataforma completa de fitness com treinos personalizados, nutrição e suplementação",
+    "url": "https://allfit.pt"
+  }
+  </script>
+</head>
+<body>
+  <div class="bg-animated"></div>
+
+  <!-- ── NAV ─────────────────────────────────────────────── -->
+  <header>
+    <nav>
+      <div class="logo" onclick="window.location.href='index.html'">ALLFIT</div>
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="treinos.html">Treinos</a></li>
+        <li><a href="nutricao.html">Nutrição</a></li>
+        <li><a href="suplementos.html">Suplementos</a></li>
+        <li><a href="Progresso.html">Progresso</a></li>
+        <li><a href="calculadora-imc.html">Calc. IMC</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ──────────────────────────────────────────── -->
+    <section class="hero">
+
+      <!-- Imagem full-screen de fundo -->
+      <div class="hero-bg">
+        <img
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&h=1200&fit=crop&q=85"
+          alt="Atleta a treinar com determinação"
+          fetchpriority="high"
+        >
+      </div>
+
+      <!-- Linha decorativa vertical -->
+      <div class="hero-accent-line"></div>
+
+      <!-- Conteúdo -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          AllFIT · Fitness &amp; Performance
+        </div>
+
+        <h1>
+          TRANSFORME
+          <span class="line-accent">O SEU</span>
+          <span class="line-outline">CORPO</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Treino &nbsp;·&nbsp; <span>Nutrição</span> &nbsp;·&nbsp; Suplementação
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="treinos.html" class="btn btn-primary">
+            Começar Agora
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+            </svg>
+          </a>
+          <a href="Progresso.html" class="btn btn-ghost">Ver o meu progresso</a>
+        </div>
+      </div>
+
+      <!-- Seta de scroll -->
+      <div class="hero-scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+    <!-- ── SOBRE ──────────────────────────────────────────── -->
+    <section class="about-section">
+      <div class="about-container">
+        <h2 class="reveal">SOBRE <span class="highlight">NÓS</span></h2>
+        <p class="about-intro reveal reveal-delay-1">
+          Somos a <strong>AllFIT</strong>, uma plataforma dedicada a transformar vidas através
+          do fitness e bem-estar. Com anos de experiência no setor, oferecemos soluções completas
+          e personalizadas para quem quer alcançar os seus objetivos — seja emagrecer, ganhar
+          músculo ou simplesmente sentir-se melhor.
+        </p>
+        <div class="about-qualities">
+          <div class="quality-card reveal reveal-delay-1">
+            <span class="quality-icon">💪</span>
+            <h3>Excelência</h3>
+            <p>Conteúdo de qualidade criado para quem quer evoluir — seja no primeiro treino ou no milésimo.</p>
+          </div>
+          <div class="quality-card reveal reveal-delay-2">
+            <span class="quality-icon">🎯</span>
+            <h3>Personalização</h3>
+            <p>Planos adaptados às tuas necessidades, objetivos e estilo de vida. Sem receitas genéricas.</p>
+          </div>
+          <div class="quality-card reveal reveal-delay-3">
+            <span class="quality-icon">🔬</span>
+            <h3>Ciência</h3>
+            <p>Métodos baseados em evidência científica e tecnologia para resultados reais e duradouros.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── COMO FUNCIONA ────────────────────────────────────── -->
+    <section class="how-section">
+      <div class="how-container">
+        <h2 class="reveal">COMO <span class="highlight">FUNCIONA</span></h2>
+        <p class="how-sub reveal reveal-delay-1">Em 3 passos simples transformas o teu corpo.</p>
+        <div class="how-steps">
+          <div class="how-step reveal reveal-delay-1">
+            <div class="how-step-num">01</div>
+            <div class="how-step-icon">🎯</div>
+            <h3>Define o Objetivo</h3>
+            <p>Escolhe entre ganhar massa muscular, perder peso ou melhorar a definição. O teu plano começa aqui.</p>
+          </div>
+          <div class="how-connector" aria-hidden="true"></div>
+          <div class="how-step reveal reveal-delay-2">
+            <div class="how-step-num">02</div>
+            <div class="how-step-icon">📋</div>
+            <h3>Segue o Plano</h3>
+            <p>Acede a treinos, planos alimentares e guias de suplementação criados para o teu objetivo específico.</p>
+          </div>
+          <div class="how-connector" aria-hidden="true"></div>
+          <div class="how-step reveal reveal-delay-3">
+            <div class="how-step-num">03</div>
+            <div class="how-step-icon">📈</div>
+            <h3>Regista o Progresso</h3>
+            <p>Monitoriza os teus treinos, calorias e evolução de peso com o nosso tracker integrado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA FINAL ──────────────────────────────────────── -->
+    <section class="cta-section">
+      <div class="cta-content reveal">
+        <h2>COMEÇA <span class="highlight">HOJE</span></h2>
+        <p>Junta-te ao melhor Site e mais desenvolvido de Musculação.</p>
+        <a href="treinos.html" class="btn btn-primary btn-large">
+          Começar Grátis
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-content">
+
+      <!-- Col 1: Marca -->
+      <div>
+        <div class="footer-logo">ALL<span>FIT</span></div>
+        <p class="footer-tagline">A tua plataforma completa de fitness, nutrição e performance. Evolui todos os dias.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.28 8.28 0 0 0 4.84 1.55V6.79a4.86 4.86 0 0 1-1.07-.1z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Plataforma -->
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="treinos.html">Treinos</a></li>
+          <li><a href="nutricao.html">Nutrição</a></li>
+          <li><a href="suplementos.html">Suplementos</a></li>
+          <li><a href="Progresso.html">Progresso</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Recursos -->
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="calculadora-imc.html">Calculadora IMC</a></li>
+        </ul>
+      </div>
+
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 AllFIT · Todos os direitos reservados</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Mobile menu ──────────────────────────────────────────
+    document.querySelector('.mobile-menu-toggle')?.addEventListener('click', function() {
+      document.querySelector('.nav-links')?.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+
+    // ── Header scroll ────────────────────────────────────────
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.pageYOffset > 80);
+    });
+
+    // ── Scroll reveal ────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Contador animado nos números ─────────────────────────
+    function animateCount(el, target, duration = 1800) {
+      let start = 0;
+      const step = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) { el.textContent = target.toLocaleString('pt-PT'); clearInterval(timer); }
+        else el.textContent = Math.floor(start).toLocaleString('pt-PT');
+      }, 16);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'));
+          animateCount(el, target);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.result-number[data-target]').forEach(el => counterObserver.observe(el));
+
+    // ── Newsletter ───────────────────────────────────────────
+    document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      btn.textContent = '✓ Subscrito!';
+      btn.style.background = 'linear-gradient(135deg,#00c97a,#00e08a)';
+      setTimeout(() => { btn.textContent = 'Subscrever'; btn.style.background = ''; this.reset(); }, 3000);
+    });
+
+    // ── Back to top ──────────────────────────────────────────
+    const backToTop = document.createElement('button');
+    backToTop.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>';
+    backToTop.className = 'back-to-top';
+    backToTop.setAttribute('aria-label', 'Voltar ao topo');
+    document.body.appendChild(backToTop);
+
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.pageYOffset > 400);
+    });
+
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Page load ────────────────────────────────────────────
+    window.addEventListener('load', () => document.body.classList.add('loaded'));
+    setTimeout(() => document.body.classList.add('loaded'), 500);
+  </script>
+</body>
+</html>

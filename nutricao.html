@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guia completo de nutrição para ganho de massa e emagrecimento - AllFIT">
+  <title>AllFIT - Nutrição</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="nutricao.css">
+</head>
+<body>
+  <div class="bg-animated"></div>
+
+  <header>
+    <nav>
+      <div class="logo" onclick="window.location.href='index.html'">ALLFIT</div>
+      <button class="mobile-menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="treinos.html">Treinos</a></li>
+        <li><a href="nutricao.html" class="active">Nutrição</a></li>
+        <li><a href="suplementos.html">Suplementos</a></li>
+        <li><a href="Progresso.html">Progresso</a></li>
+        <li><a href="calculadora-imc.html">Calc. IMC</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="nutricao" class="page active">
+
+    <!-- HERO — sem imagem -->
+    <div class="nutricao-hero">
+      <div class="nutricao-hero-overlay">
+        <p class="nutricao-hero-tag">BEM-ESTAR &amp; DESEMPENHO</p>
+        <h1 class="nutricao-hero-title">NUTRI<span>ÇÃO</span></h1>
+        <p class="nutricao-hero-sub">Alimenta o teu corpo. Alcança os teus objetivos.</p>
+      </div>
+    </div>
+
+    <div class="nutricao-section">
+
+      <!-- GOALS SECTION -->
+      <div id="goals-section">
+        <h2 class="section-title">ESCOLHE O TEU <span class="highlight">OBJETIVO</span></h2>
+        <p style="text-align:center;color:rgba(255,255,255,0.4);margin-bottom:50px;font-size:1rem;">
+          Seleciona o que queres alcançar e descobre o plano alimentar ideal para ti
+        </p>
+
+        <!-- MACROS BANNER -->
+        <div class="macros-banner">
+          <div class="macro-pill">
+            <div class="macro-pill-icon">🥩</div>
+            <h4>PROTEÍNA</h4>
+            <p>1.6–2.2g por kg de peso corporal. Base da construção e preservação muscular.</p>
+            <div class="macro-bar"></div>
+          </div>
+          <div class="macro-pill">
+            <div class="macro-pill-icon">🍚</div>
+            <h4>CARBOIDRATOS</h4>
+            <p>3–7g/kg conforme intensidade. Principal combustível para treino e recuperação.</p>
+            <div class="macro-bar" style="background:linear-gradient(90deg,#3b82f6,transparent);"></div>
+          </div>
+          <div class="macro-pill">
+            <div class="macro-pill-icon">🥑</div>
+            <h4>GORDURAS</h4>
+            <p>0.8–1.2g/kg. Essenciais para hormonas, articulações e absorção vitamínica.</p>
+            <div class="macro-bar" style="background:linear-gradient(90deg,#facc15,transparent);"></div>
+          </div>
+        </div>
+
+        <!-- GOAL CARDS — sem imagens -->
+        <div class="nutricao-goals-grid">
+
+          <div class="nutricao-goal-card" onclick="showPlans('ganhar-massa')">
+            <div class="goal-card-accent"></div>
+            <div class="nutricao-goal-card-body">
+              <span class="goal-card-icon">💪</span>
+              <h3>GANHAR MASSA MUSCULAR</h3>
+              <p>Superávit calórico de 300–500 kcal/dia com proteína elevada para máxima hipertrofia.</p>
+              <button class="btn-goal">Ver Plano</button>
+            </div>
+          </div>
+
+          <div class="nutricao-goal-card" onclick="showPlans('perder-peso')">
+            <div class="goal-card-accent"></div>
+            <div class="nutricao-goal-card-body">
+              <span class="goal-card-icon">🔥</span>
+              <h3>PERDER PESO</h3>
+              <p>Déficit calórico controlado de 300–500 kcal/dia preservando a massa muscular.</p>
+              <button class="btn-goal">Ver Plano</button>
+            </div>
+          </div>
+
+          <div class="nutricao-goal-card" onclick="showPlans('definicao')">
+            <div class="goal-card-accent"></div>
+            <div class="nutricao-goal-card-body">
+              <span class="goal-card-icon">🎯</span>
+              <h3>DEFINIÇÃO MUSCULAR</h3>
+              <p>Recomposição corporal em manutenção calórica — perder gordura e manter músculo.</p>
+              <button class="btn-goal">Ver Plano</button>
+            </div>
+          </div>
+
+          <div class="nutricao-goal-card" onclick="showPlans('equilibrio')">
+            <div class="goal-card-accent"></div>
+            <div class="nutricao-goal-card-body">
+              <span class="goal-card-icon">⚖️</span>
+              <h3>EQUILÍBRIO / MANTER PESO</h3>
+              <p>Manutenção do peso atual com alimentação equilibrada, energia estável e saúde a longo prazo.</p>
+              <button class="btn-goal">Ver Plano</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- NUTRITION PLANS CONTAINER -->
+      <div id="nutrition-plans-container" style="display:none;">
+        <div class="nutricao-plans-header">
+          <button class="btn-back-nutricao" onclick="backToGoals()">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Voltar
+          </button>
+          <h2 class="section-title" id="plans-title" style="margin-bottom:0;text-align:left;"></h2>
+        </div>
+        <div id="plans-content"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">ALL<span>FIT</span></div>
+        <p class="footer-tagline">A tua plataforma completa de fitness, nutrição e performance. Evolui todos os dias.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.28 8.28 0 0 0 4.84 1.55V6.79a4.86 4.86 0 0 1-1.07-.1z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="treinos.html">Treinos</a></li>
+          <li><a href="nutricao.html">Nutrição</a></li>
+          <li><a href="suplementos.html">Suplementos</a></li>
+          <li><a href="app.html">Progresso</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="calculadora-imc.html">Calculadora IMC</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 AllFIT · Todos os direitos reservados</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.body.classList.add('loaded');
+
+    document.querySelector('.mobile-menu-toggle')?.addEventListener('click', function() {
+      document.querySelector('.nav-links')?.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.pageYOffset > 100));
+
+    // ── Dados dos planos ────────────────────────────────────────
+    const nutritionPlans = {
+      'ganhar-massa': {
+        title: 'GANHAR <span class="highlight">MASSA MUSCULAR</span>',
+        heroTag: 'FORÇA & HIPERTROFIA', heroTitle: 'BULKING LIMPO',
+        heroSub: 'Superávit calórico controlado para máxima hipertrofia.', deco: '3000',
+        description: 'Superávit de 300–500 kcal/dia · 1.6–2.2g proteína/kg · 6 a 7 refeições/dia',
+        plans: [{
+          name: 'PLANO BULKING — 3000 KCAL',
+          macros: [
+            {label:'🥩 Proteína: 180g (2g/kg)',type:'protein'},
+            {label:'🍚 Carbos: 330g (3.7g/kg)',type:'carbs'},
+            {label:'🥑 Gorduras: 90g (1g/kg)',type:'fats'}
+          ],
+          description: 'Ganho de 0.25–0.5kg/semana de massa muscular limpa',
+          meals: [
+            {title:'PEQUENO-ALMOÇO',   kcalTotal:'665 kcal', items:[{name:'3 ovos inteiros mexidos',kcal:'234 kcal'},{name:'60g aveia seca',kcal:'234 kcal'},{name:'1 banana média',kcal:'107 kcal'},{name:'15g manteiga de amendoim',kcal:'90 kcal'},{name:'Café ou chá sem açúcar',kcal:'0 kcal'}]},
+            {title:'LANCHE DA MANHÃ',  kcalTotal:'400 kcal', items:[{name:'1 scoop whey protein (30g)',kcal:'120 kcal'},{name:'1 banana',kcal:'107 kcal'},{name:'30g amêndoas',kcal:'174 kcal'}]},
+            {title:'ALMOÇO',           kcalTotal:'700 kcal', items:[{name:'180g peito de frango grelhado',kcal:'297 kcal'},{name:'150g arroz integral cozido',kcal:'165 kcal'},{name:'100g batata doce cozida',kcal:'86 kcal'},{name:'Salada verde à vontade',kcal:'20 kcal'},{name:'1 colher sopa de azeite',kcal:'135 kcal'}]},
+            {title:'PRÉ-TREINO',       kcalTotal:'315 kcal', items:[{name:'100g peito de peru fatiado',kcal:'135 kcal'},{name:'2 fatias de pão integral',kcal:'180 kcal'},{name:'Café preto',kcal:'0 kcal'}]},
+            {title:'PÓS-TREINO',       kcalTotal:'345 kcal', items:[{name:'1 scoop whey + 30g dextrose',kcal:'240 kcal'},{name:'1 banana',kcal:'107 kcal'},{name:'Creatina 5g',kcal:'0 kcal'}]},
+            {title:'JANTAR',           kcalTotal:'480 kcal', items:[{name:'150g salmão ou frango grelhado',kcal:'312 kcal'},{name:'100g massa integral cozida',kcal:'140 kcal'},{name:'Legumes grelhados variados',kcal:'30 kcal'}]},
+            {title:'CEIA',             kcalTotal:'120 kcal', items:[{name:'150g queijo cottage 0%',kcal:'120 kcal'},{name:'ZMA (antes de dormir)',kcal:'0 kcal'}]}
+          ]
+        }],
+        tips:[
+          {icon:'⏰',title:'Timing das refeições',text:'Come a cada 3–4h. Nunca treines em jejum no bulking.'},
+          {icon:'💧',title:'Hidratação',text:'Mínimo 3L de água/dia. A desidratação limita a força.'},
+          {icon:'😴',title:'Sono',text:'7–9h por noite. É no sono que o músculo cresce.'},
+          {icon:'📈',title:'Progressão',text:'Aumenta as calorias gradualmente — 200 kcal de cada vez.'}
+        ]
+      },
+      'perder-peso': {
+        title: 'PERDER <span class="highlight">PESO</span>',
+        heroTag: 'CUTTING & EMAGRECIMENTO', heroTitle: 'DÉFICIT INTELIGENTE',
+        heroSub: 'Perder gordura sem perder músculo — a estratégia certa.', deco: '2000',
+        description: 'Déficit de 300–500 kcal/dia · Proteína elevada 2–2.4g/kg · Preservação muscular máxima',
+        plans: [{
+          name: 'PLANO CUTTING MODERADO — 2000 KCAL',
+          macros: [
+            {label:'🥩 Proteína: 155g (2.1g/kg)',type:'protein'},
+            {label:'🍚 Carbos: 185g',type:'carbs'},
+            {label:'🥑 Gorduras: 55g',type:'fats'}
+          ],
+          description: 'Perda de 0.5–0.7% do peso corporal por semana com máxima retenção muscular',
+          meals: [
+            {title:'PEQUENO-ALMOÇO',   kcalTotal:'450 kcal', items:[{name:'3 ovos inteiros',kcal:'234 kcal'},{name:'50g aveia seca',kcal:'195 kcal'},{name:'Vegetais salteados à vontade',kcal:'20 kcal'},{name:'Café preto',kcal:'0 kcal'}]},
+            {title:'LANCHE',           kcalTotal:'215 kcal', items:[{name:'1 scoop whey protein (30g)',kcal:'120 kcal'},{name:'1 maçã média',kcal:'93 kcal'},{name:'Chá verde',kcal:'0 kcal'}]},
+            {title:'ALMOÇO',           kcalTotal:'535 kcal', items:[{name:'180g peito de frango grelhado',kcal:'297 kcal'},{name:'100g arroz integral cozido',kcal:'110 kcal'},{name:'Salada grande variada',kcal:'20 kcal'},{name:'Vegetais cozidos variados',kcal:'40 kcal'},{name:'½ colher sopa de azeite',kcal:'68 kcal'}]},
+            {title:'PRÉ-TREINO',       kcalTotal:'230 kcal', items:[{name:'100g peito de peru',kcal:'135 kcal'},{name:'1 fatia de pão integral',kcal:'90 kcal'},{name:'Café + termogénico',kcal:'5 kcal'}]},
+            {title:'PÓS-TREINO',       kcalTotal:'190 kcal', items:[{name:'1 scoop whey isolado (30g)',kcal:'110 kcal'},{name:'1 banana pequena',kcal:'81 kcal'},{name:'Creatina 5g',kcal:'0 kcal'}]},
+            {title:'JANTAR',           kcalTotal:'295 kcal', items:[{name:'150g tilápia ou bacalhau grelhado',kcal:'165 kcal'},{name:'Salada grande',kcal:'20 kcal'},{name:'Vegetais grelhados',kcal:'30 kcal'},{name:'80g batata doce cozida',kcal:'69 kcal'},{name:'Azeite em spray',kcal:'10 kcal'}]},
+            {title:'CEIA',             kcalTotal:'125 kcal', items:[{name:'150g queijo cottage 0%',kcal:'120 kcal'},{name:'Canela a gosto',kcal:'5 kcal'}]}
+          ]
+        }],
+        tips:[
+          {icon:'🔥',title:'Déficit gradual',text:'Nunca cortes mais de 500 kcal de uma vez. Preserva músculo.'},
+          {icon:'🥗',title:'Volume alimentar',text:'Prioriza vegetais. Muito volume, poucas calorias, muita saciedade.'},
+          {icon:'⚖️',title:'Pesagem',text:'Pesa-te sempre à mesma hora, em jejum. Usa média semanal.'},
+          {icon:'🧠',title:'Paciência',text:'Perda saudável = 0.5–1kg/semana. Mais que isso é músculo também.'}
+        ]
+      },
+      'definicao': {
+        title: 'DEFINIÇÃO <span class="highlight">MUSCULAR</span>',
+        heroTag: 'RECOMPOSIÇÃO CORPORAL', heroTitle: 'MANUTENÇÃO & DEFINIÇÃO',
+        heroSub: 'Perder gordura e manter músculo ao mesmo tempo.', deco: '2400',
+        description: 'Manutenção calórica ±200 kcal · Proteína 2g/kg · Timing dos carbos crítico',
+        plans: [{
+          name: 'PLANO DEFINIÇÃO — 2400 KCAL',
+          macros: [
+            {label:'🥩 Proteína: 175g (2g/kg)',type:'protein'},
+            {label:'🍚 Carbos: 260g (timing crítico)',type:'carbs'},
+            {label:'🥑 Gorduras: 70g',type:'fats'}
+          ],
+          description: 'Recomposição possível para iniciantes e retorno ao treino. Peso estável, composição melhora.',
+          meals: [
+            {title:'PEQUENO-ALMOÇO',   kcalTotal:'535 kcal', items:[{name:'3 ovos inteiros',kcal:'234 kcal'},{name:'50g aveia seca',kcal:'195 kcal'},{name:'1 banana média',kcal:'107 kcal'},{name:'Café sem açúcar',kcal:'0 kcal'}]},
+            {title:'LANCHE',           kcalTotal:'215 kcal', items:[{name:'1 scoop whey protein (30g)',kcal:'120 kcal'},{name:'1 fruta média',kcal:'93 kcal'}]},
+            {title:'ALMOÇO',           kcalTotal:'585 kcal', items:[{name:'180g frango ou carne magra',kcal:'297 kcal'},{name:'120g arroz integral cozido',kcal:'132 kcal'},{name:'80g batata doce cozida',kcal:'69 kcal'},{name:'Salada verde à vontade',kcal:'20 kcal'},{name:'½ colher sopa de azeite',kcal:'68 kcal'}]},
+            {title:'PRÉ-TREINO',       kcalTotal:'255 kcal', items:[{name:'100g peito de frango',kcal:'165 kcal'},{name:'1 pão integral',kcal:'90 kcal'},{name:'Café',kcal:'0 kcal'}]},
+            {title:'PÓS-TREINO',       kcalTotal:'240 kcal', items:[{name:'1 scoop whey protein (30g)',kcal:'120 kcal'},{name:'30g dextrose',kcal:'120 kcal'},{name:'Creatina 5g',kcal:'0 kcal'}]},
+            {title:'JANTAR',           kcalTotal:'385 kcal', items:[{name:'150g frango ou peixe grelhado',kcal:'247 kcal'},{name:'80g arroz integral cozido',kcal:'88 kcal'},{name:'Vegetais grelhados',kcal:'40 kcal'},{name:'Azeite em spray',kcal:'10 kcal'}]},
+            {title:'CEIA',             kcalTotal:'185 kcal', items:[{name:'150g queijo cottage 0%',kcal:'120 kcal'},{name:'10g nozes',kcal:'65 kcal'}]}
+          ]
+        }],
+        tips:[
+          {icon:'🎯',title:'Timing dos carbos',text:'Carbos maioritariamente nas refeições pré e pós-treino.'},
+          {icon:'💪',title:'Intensidade',text:'Mantém a carga no treino. É o sinal que dizes ao músculo para ficar.'},
+          {icon:'📊',title:'Mede-te',text:'Usa fotos e medições. A balança pode não mexer mas o espelho sim.'},
+          {icon:'🔄',title:'Consistência',text:'Resultados em 8–12 semanas de consistência total.'}
+        ]
+      },
+      'equilibrio': {
+        title: 'EQUILÍBRIO / <span class="highlight">MANTER PESO</span>',
+        heroTag: 'MANUTENÇÃO & BEM-ESTAR', heroTitle: 'EQUILÍBRIO TOTAL',
+        heroSub: 'Alimentação sustentável para manter o peso e ter energia todos os dias.', deco: '2500',
+        description: 'Manutenção calórica (TDEE) · Proteína 1.6–1.8g/kg · Alimentação variada e equilibrada',
+        plans: [{
+          name: 'PLANO MANUTENÇÃO — 2500 KCAL',
+          macros: [
+            {label:'🥩 Proteína: 150g (1.7g/kg)',type:'protein'},
+            {label:'🍚 Carbos: 290g',type:'carbs'},
+            {label:'🥑 Gorduras: 75g',type:'fats'}
+          ],
+          description: 'Peso estável semana após semana · Energia constante ao longo do dia · Sustentável a longo prazo',
+          meals: [
+            {title:'PEQUENO-ALMOÇO',   kcalTotal:'550 kcal', items:[{name:'3 ovos mexidos',kcal:'234 kcal'},{name:'60g aveia com leite meio-gordo',kcal:'220 kcal'},{name:'1 peça de fruta',kcal:'80 kcal'},{name:'Café com leite (sem açúcar)',kcal:'20 kcal'}]},
+            {title:'LANCHE DA MANHÃ',  kcalTotal:'270 kcal', items:[{name:'1 iogurte grego natural (170g)',kcal:'100 kcal'},{name:'30g granola sem açúcar',kcal:'130 kcal'},{name:'1 kiwi',kcal:'42 kcal'}]},
+            {title:'ALMOÇO',           kcalTotal:'640 kcal', items:[{name:'160g frango grelhado',kcal:'264 kcal'},{name:'130g arroz integral cozido',kcal:'143 kcal'},{name:'100g legumes variados salteados',kcal:'50 kcal'},{name:'Salada verde à vontade',kcal:'20 kcal'},{name:'1 colher de sopa de azeite',kcal:'135 kcal'},{name:'Pão integral (1 fatia)',kcal:'90 kcal'}]},
+            {title:'LANCHE DA TARDE',  kcalTotal:'320 kcal', items:[{name:'1 scoop whey protein (30g)',kcal:'120 kcal'},{name:'1 banana',kcal:'107 kcal'},{name:'15g amêndoas',kcal:'90 kcal'}]},
+            {title:'JANTAR',           kcalTotal:'560 kcal', items:[{name:'150g salmão ou peixe grelhado',kcal:'280 kcal'},{name:'150g batata doce cozida',kcal:'129 kcal'},{name:'Brócolos e cenoura cozidos',kcal:'50 kcal'},{name:'Azeite (½ colher de sopa)',kcal:'68 kcal'},{name:'Sopa de legumes (1 prato)',kcal:'35 kcal'}]},
+            {title:'CEIA',             kcalTotal:'160 kcal', items:[{name:'200g queijo cottage 0%',kcal:'160 kcal'},{name:'Canela ou baunilha a gosto',kcal:'0 kcal'}]}
+          ]
+        }],
+        tips:[
+          {icon:'⚖️',title:'Calorias de manutenção',text:'Calcula o teu TDEE e come nesse valor ±100 kcal. Consistência é a chave.'},
+          {icon:'🌈',title:'Variedade alimentar',text:'Come alimentos de todas as cores. Diversidade garante micronutrientes essenciais.'},
+          {icon:'🧘',title:'Relação saudável',text:'Manutenção não é dieta — é um estilo de vida. Permite refeições livres pontuais.'},
+          {icon:'📏',title:'Monitorização',text:'Pesa-te 1–2x por semana, sempre em jejum. Variações de ±1kg são normais.'}
+        ]
+      }
+    };
+
+    // ── Render planos ───────────────────────────────────────────
+    function showPlans(goal) {
+      const data = nutritionPlans[goal];
+      if (!data) return;
+      document.getElementById('plans-title').innerHTML = data.title;
+
+      let html = `
+        <div class="plan-hero-banner">
+          <div class="plan-hero-deco">${data.deco}</div>
+          <div class="plan-hero-inner">
+            <span class="plan-hero-tag">${data.heroTag}</span>
+            <span class="plan-hero-title">${data.heroTitle}</span>
+            <p class="plan-hero-sub">${data.heroSub}</p>
+          </div>
+        </div>
+        <p style="text-align:center;color:rgba(255,255,255,0.4);margin-bottom:50px;font-size:1rem;">${data.description}</p>
+      `;
+
+      data.plans.forEach(plan => {
+        const macrosHTML = plan.macros.map(m =>
+          `<span class="macro-tag ${m.type==='carbs'?'carbs':m.type==='fats'?'fats':''}">${m.label}</span>`
+        ).join('');
+
+        html += `<div class="nutrition-plan">
+          <h3>${plan.name}</h3>
+          <div class="plan-macros-row">${macrosHTML}</div>
+          <p style="color:rgba(255,255,255,0.4);margin-bottom:28px;font-size:.9rem;">${plan.description}</p>
+          <div class="meals-grid">`;
+
+        plan.meals.forEach(meal => {
+          const itemsHTML = meal.items.map(item =>
+            `<li><span>${item.name}</span><span class="kcal">${item.kcal}</span></li>`
+          ).join('');
+
+          html += `<div class="meal-card">
+            <div class="meal-card-accent"></div>
+            <div class="meal-card-body">
+              <div class="meal-card-header">
+                <span class="meal-card-title">${meal.title}</span>
+                <span class="meal-kcal-badge">${meal.kcalTotal}</span>
+              </div>
+              <ul class="meal-list">${itemsHTML}</ul>
+              <div class="meal-total"><span>TOTAL</span><span>${meal.kcalTotal}</span></div>
+            </div>
+          </div>`;
+        });
+
+        html += `</div></div>`;
+      });
+
+      if (data.tips) {
+        const tipsHTML = data.tips.map(t =>
+          `<div class="tip-item">
+            <span class="tip-icon">${t.icon}</span>
+            <div><strong>${t.title}</strong><p>${t.text}</p></div>
+          </div>`
+        ).join('');
+        html += `<div class="tips-section"><h3>💡 DICAS IMPORTANTES</h3><div class="tips-grid">${tipsHTML}</div></div>`;
+      }
+
+      document.getElementById('plans-content').innerHTML = html;
+      document.getElementById('goals-section').style.display = 'none';
+      document.getElementById('nutrition-plans-container').style.display = 'block';
+
+      // Animação de entrada nos meal cards
+      setTimeout(() => {
+        document.querySelectorAll('.meal-card').forEach((card, i) => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(22px)';
+          card.style.transition = 'opacity .4s ease, transform .4s ease';
+          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, i * 55);
+        });
+      }, 60);
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function backToGoals() {
+      document.getElementById('goals-section').style.display = 'block';
+      document.getElementById('nutrition-plans-container').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Animação de entrada nos goal cards e macro pills
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.nutricao-goal-card, .macro-pill').forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(26px)';
+      card.style.transition = `opacity .5s ease ${i * 0.08}s, transform .5s ease ${i * 0.08}s`;
+      obs.observe(card);
+    });
+
+    // Newsletter
+    document.querySelectorAll('.newsletter-form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button');
+        btn.textContent = '✓ Subscrito!';
+        btn.style.background = 'linear-gradient(135deg,#00c97a,#00e08a)';
+        setTimeout(() => { btn.textContent = 'Subscrever'; btn.style.background = ''; this.reset(); }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>

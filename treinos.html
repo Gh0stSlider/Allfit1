@@ -1,0 +1,740 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Planos de treino profissionais para iniciantes e avançados - AllFIT">
+  <meta name="keywords" content="treino, musculação, fitness, exercícios, academia, plano de treino">
+  <title>AllFIT - Treinos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="bg-animated"></div>
+
+  <header>
+    <nav>
+      <div class="logo" onclick="window.location.href='index.html'">ALLFIT</div>
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="treinos.html" class="active">Treinos</a></li>
+        <li><a href="nutricao.html">Nutrição</a></li>
+        <li><a href="suplementos.html">Suplementos</a></li>
+        <li><a href="Progresso.html">Progresso</a></li>
+        <li><a href="calculadora-imc.html">Calc. IMC</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+      <span class="video-close">&times;</span>
+      <h3 id="videoTitle"></h3>
+      <div class="video-container">
+        <iframe id="videoFrame" allowfullscreen allow="autoplay" style="width:100%;height:100%;border:none;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <section class="treinos-hero">
+    <img
+      src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1600&q=80&fit=crop"
+      alt="Ginásio AllFIT"
+      class="treinos-hero-img"
+    />
+    <div class="treinos-hero-overlay">
+      <h1>TREINOS <span class="highlight">ALLFIT</span></h1>
+      <p>Transforma o teu corpo. Supera os teus limites.</p>
+    </div>
+  </section>
+
+  <div id="planos" class="page active">
+
+    <section class="section">
+      <h2 class="section-title" id="goals-title">ESCOLHA SEU <span class="highlight">OBJETIVO</span></h2>
+      <p id="goals-subtitle" style="text-align: center; color: #aaa; margin-bottom: 50px; font-size: 1.1rem;">
+        Selecione o que deseja alcançar e descubra os melhores planos de treino
+      </p>
+
+      <!-- Goal Selection Cards -->
+      <div class="goals-grid">
+        <div class="goal-card" data-goal="ganhar-massa" onclick="showPlans('ganhar-massa')">
+          <div class="goal-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+              <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/>
+            </svg>
+          </div>
+          <h3>PUSH / PULL / LEGS</h3>
+          <p>Divisão PPL — 3x por semana</p>
+          <button class="btn btn-primary">Ver Planos</button>
+        </div>
+
+        <div class="goal-card" data-goal="perder-peso" onclick="showPlans('perder-peso')">
+          <div class="goal-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+              <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/>
+            </svg>
+          </div>
+          <h3>TREINO FULL-BODY</h3>
+          <p>Treino completo do corpo inteiro</p>
+          <button class="btn btn-primary">Ver Planos</button>
+        </div>
+
+        <div class="goal-card" data-goal="definicao" onclick="showPlans('definicao')">
+          <div class="goal-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>TREINO UPPER/LOWER</h3>
+          <p>Divisão superior e inferior do corpo</p>
+          <button class="btn btn-primary">Ver Planos</button>
+        </div>
+
+        <div class="goal-card" data-goal="hibrido" onclick="showPlans('hibrido')">
+          <div class="goal-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+              <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+            </svg>
+          </div>
+          <h3>TREINO HÍBRIDO</h3>
+          <p>Alternância Push/Legs e Pull — 2 dias/semana</p>
+          <button class="btn btn-primary">Ver Planos</button>
+        </div>
+
+        <div class="goal-card" data-goal="semanal" onclick="showPlans('semanal')">
+          <div class="goal-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="80" height="80">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zm-5-7h4v4h-4z"/>
+            </svg>
+          </div>
+          <h3>TREINO SEMANAL</h3>
+          <p>5 dias com foco em grupos musculares</p>
+          <button class="btn btn-primary">Ver Planos</button>
+        </div>
+      </div>
+
+      <!-- Workout Plans Container (Hidden by default) -->
+      <div id="workout-plans-container" style="display: none; margin-top: 0;">
+        <div id="plans-hero"></div>
+        <div class="plans-header">
+          <div class="workout-type-tabs">
+            <button class="type-tab active" onclick="switchWorkoutType('ganhar-massa')" data-type="ganhar-massa">
+              Push/Pull/Legs
+            </button>
+            <button class="type-tab" onclick="switchWorkoutType('perder-peso')" data-type="perder-peso">
+              Full-Body
+            </button>
+            <button class="type-tab" onclick="switchWorkoutType('definicao')" data-type="definicao">
+              Upper/Lower
+            </button>
+            <button class="type-tab" onclick="switchWorkoutType('hibrido')" data-type="hibrido">
+              Híbrido
+            </button>
+            <button class="type-tab" onclick="switchWorkoutType('semanal')" data-type="semanal">
+              Semanal
+            </button>
+          </div>
+        </div>
+        <h2 class="section-title" id="plans-title" style="margin-bottom: 40px;"></h2>
+
+        <div id="plans-content"></div>
+      </div>
+
+    </section>
+  </div>
+
+
+
+  <script>
+    // Garantir scroll funciona
+    document.body.classList.add('loaded');
+
+    // Mobile menu
+    document.querySelector('.mobile-menu-toggle')?.addEventListener('click', function() {
+      document.querySelector('.nav-links')?.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+
+    // ─────────────────────────────────────────────
+    // FIX: exerciseVideos object properly closed
+    // ─────────────────────────────────────────────
+    const exerciseVideos = {
+      'Leg Curl': 'https://drive.google.com/file/d/1ZXtKx_vdfHLGwK3Wg8l_sCWazlz01xJC/preview',
+      'Leg Extension': 'https://drive.google.com/file/d/1Plz_QVRSlicludW78qESJYnWVAZsrZPD/preview',
+      'Supino Inclinado': 'https://drive.google.com/file/d/1C9qVUFsMcV8EW9oAmWc2L0uky-jVnU1O/preview',
+      'Aberturas (Banco)': 'https://drive.google.com/file/d/1h_JQBKNaciCDWHUc92zJuXilpsvYfZ_1/preview',
+      'Rosca Direta (Cabo)': 'https://drive.google.com/file/d/1-2bBPIculHPVC_zDI8yQ8mcMcxVr2lPB/preview',
+      'Rosca Martelo': 'https://drive.google.com/file/d/1XJVYGvgx08-kxO_aaYMitwin4M3rtKAg/preview',
+      'Puxada Frontal (Barra Comprida)': 'https://drive.google.com/file/d/1rpKogyLOT3uPboMoCtMigP7_nSKzrFBl/preview',
+      'Remada Sentada na Polia': 'https://drive.google.com/file/d/1DUXhjOXYPqSCXarLaIMlaY2qQOrsuV2a/preview',
+      'Tríceps (Corda)': 'https://drive.google.com/file/d/1me5fU4T93MME4tuBIWlR_rNsjPaS9FmW/preview',
+      'Tríceps Pushdown': 'https://drive.google.com/file/d/1me5fU4T93MME4tuBIWlR_rNsjPaS9FmW/preview',
+      'Tríceps (Cabo por Cima)': 'https://drive.google.com/file/d/1G31HftmdMY41iGJr5A4f4QX2_RIOefez/preview',
+      'Press Militar': 'https://drive.google.com/file/d/1bUfOJjcVwfkuwv8KgwCLnP5aAX1DbQnX/preview',
+      'Elevação Lateral': 'https://drive.google.com/file/d/12uYj3gVXaYgjVwbBYsjcptq7cOJgSpMt/preview',
+      'Crucifixo Invertido com Halteres': 'https://drive.google.com/file/d/12QUE0sTDBv6wF6YUgqH6kxNk3Ivd5ReO/preview',
+      'Hack Squat': 'https://drive.google.com/file/d/1nJ3AhECGq995F06IYG1XEM3dYAwq224Z/preview',
+      'Panturrilha em Pé': 'https://drive.google.com/file/d/1M_8zDzJxn0PfFtIxpqDYCgHY9JtBYgf-/preview',
+      'Rosca Direta com Halteres': 'https://drive.google.com/file/d/1zIFtNuCwlIso1_S1eM4A39OyT9fJcOf1/preview',
+      'Chest Press': 'https://drive.google.com/file/d/1odUGh4tS3BOd3ozhiLHBThOZud0WVeQI/preview',
+      'Elevação Gémeo em Pé': 'https://drive.google.com/file/d/1OMRIs3yUg87U7ZH9CCUokMYvlxKpwbAC/preview'
+    };
+
+    // ─────────────────────────────────────────────
+    // Workout plans database
+    // ─────────────────────────────────────────────
+    const workoutPlans = {
+      'ganhar-massa': {
+        title: 'PUSH / PULL / <span class="highlight">LEGS</span>',
+        description: 'Divisão PPL — 3 treinos por semana, cada um focado num grupo muscular diferente',
+        plans: [
+          {
+            name: 'PUSH / PULL / LEGS (PPL)',
+            frequency: '3x por semana',
+            tip: '💡 Dica: Podes repetir cada categoria 2x por semana (Push → Pull → Legs → Push → Pull → Legs), passando a treinar 6x por semana para máxima hipertrofia.',
+            description: 'Push (empurrar) · Pull (puxar) · Legs (pernas) — repetido 2x por semana',
+            days: [
+              {
+                title: 'PUSH — PEITO, OMBROS E TRÍCEPS',
+                exercises: [
+                  { section: 'PEITO' },
+                  { name: 'Supino Inclinado', sets: '2x8' },
+                  { name: 'Aberturas (Banco)', sets: '2x8' },
+                  { section: 'OMBROS' },
+                  { name: 'Press Militar', sets: '2x8' },
+                  { name: 'Elevação Lateral', sets: '2x8' },
+                  { section: 'TRÍCEPS' },
+                  { name: 'Tríceps (Corda)', sets: '2x8' },
+                  { name: 'Tríceps (Cabo por Cima)', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'PULL — COSTAS E BÍCEPS',
+                exercises: [
+                  { section: 'COSTAS' },
+                  { name: 'Puxada Frontal (Barra Comprida)', sets: '2x8' },
+                  { name: 'Remada Sentada na Polia', sets: '2x8' },
+                  { section: 'OMBROS (Traseiro)' },
+                  { name: 'Crucifixo Invertido com Halteres', sets: '2x8' },
+                  { section: 'BÍCEPS' },
+                  { name: 'Rosca Direta (Cabo)', sets: '2x8' },
+                  { name: 'Rosca Martelo', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'LEGS — PERNAS COMPLETAS',
+                exercises: [
+                  { section: 'QUADRÍCEPS' },
+                  { name: 'Agachamento Livre', sets: '2x8' },
+                  { name: 'Hack Squat', sets: '2x8' },
+                  { name: 'Leg Extension', sets: '2x8' },
+                  { section: 'ISQUIOTIBIAIS' },
+                  { name: 'Leg Curl', sets: '2x8' },
+                  { section: 'GÉMEOS' },
+                  { name: 'Panturrilha em Pé', sets: '2x8' }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      'perder-peso': {
+        title: 'TREINO <span class="highlight">FULL-BODY</span>',
+        description: 'Treino completo do corpo inteiro',
+        plans: [
+          {
+            name: 'FULL BODY',
+            frequency: '3x por semana',
+            description: 'Treino completo do corpo inteiro — todos os grupos musculares numa só sessão',
+            days: [
+              {
+                title: 'FULL BODY (Sessão A)',
+                exercises: [
+                  { section: 'PEITO' },
+                  { name: 'Aberturas (Banco)', sets: '2x8' },
+                  { section: 'COSTAS' },
+                  { name: 'Puxada Frontal (Barra Comprida)', sets: '2x8' },
+                  { section: 'OMBROS' },
+                  { name: 'Press Militar', sets: '2x8' },
+                  { section: 'PERNAS' },
+                  { name: 'Leg Extension', sets: '2x8' },
+                  { section: 'BRAÇOS' },
+                  { name: 'Rosca Direta (Cabo)', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'FULL BODY (Sessão B)',
+                exercises: [
+                  { section: 'PEITO' },
+                  { name: 'Chest Press', sets: '2x8' },
+                  { section: 'COSTAS' },
+                  { name: 'Remada Sentada na Polia', sets: '2x8' },
+                  { section: 'OMBROS' },
+                  { name: 'Elevação Lateral', sets: '2x8' },
+                  { section: 'PERNAS' },
+                  { name: 'Leg Curl', sets: '2x8' },
+                  { section: 'BRAÇOS' },
+                  { name: 'Tríceps (Corda)', sets: '2x8' }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      'definicao': {
+        title: 'TREINO <span class="highlight">UPPER/LOWER</span>',
+        description: 'Divisão superior e inferior do corpo — 2 dias Upper + 2 dias Lower por semana',
+        plans: [
+          {
+            name: 'TREINO UPPER/LOWER',
+            frequency: '4x por semana',
+            description: 'Divisão superior e inferior do corpo — 2 dias Upper + 2 dias Lower por semana',
+            days: [
+              {
+                title: 'UPPER — SUPERIOR',
+                exercises: [
+                  { section: 'PEITO' },
+                  { name: 'Supino Inclinado', sets: '2x8' },
+                  { section: 'COSTAS' },
+                  { name: 'Puxada Frontal (Barra Comprida)', sets: '2x8' },
+                  { section: 'OMBROS' },
+                  { name: 'Press Militar', sets: '2x8' },
+                  { section: 'TRÍCEPS' },
+                  { name: 'Tríceps (Corda)', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'LOWER — INFERIOR',
+                exercises: [
+                  { section: 'QUADRÍCEPS' },
+                  { name: 'Hack Squat', sets: '2x8' },
+                  { section: 'ISQUIOTIBIAIS' },
+                  { name: 'Leg Curl', sets: '2x8' },
+                  { section: 'GÉMEOS' },
+                  { name: 'Panturrilha em Pé', sets: '2x8' }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      'hibrido': {
+        title: 'TREINO <span class="highlight">HÍBRIDO</span>',
+        description: 'Alternância entre Push/Legs e Pull — 2 dias por semana',
+        plans: [
+          {
+            name: 'PLANO HÍBRIDO A/B',
+            frequency: '2x por semana',
+            tip: '💡 Dica: Ideal para quem tem menos tempo disponível. Alterna entre sessões de Push/Legs e Pull, maximizando a recuperação.',
+            description: 'Dia A: Push + Legs | Dia B: Pull — sessões alternadas',
+            days: [
+              {
+                title: 'DIA A — PUSH + LEGS',
+                exercises: [
+                  { section: 'PEITO' },
+                  { name: 'Supino Inclinado', sets: '2x8' },
+                  { name: 'Aberturas (Banco)', sets: '2x8' },
+                  { section: 'OMBROS' },
+                  { name: 'Press Militar', sets: '2x8' },
+                  { name: 'Elevação Lateral', sets: '2x8' },
+                  { section: 'TRÍCEPS' },
+                  { name: 'Tríceps (Corda)', sets: '2x8' },
+                  { name: 'Tríceps (Cabo por Cima)', sets: '2x8' },
+                  { section: 'PERNAS' },
+                  { name: 'Leg Extension', sets: '2x8' },
+                  { name: 'Leg Curl', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'DIA B — PULL',
+                exercises: [
+                  { section: 'COSTAS' },
+                  { name: 'Puxada Frontal (Barra Comprida)', sets: '2x8' },
+                  { name: 'Remada Sentada na Polia', sets: '2x8' },
+                  { section: 'BÍCEPS' },
+                  { name: 'Rosca Direta (Cabo)', sets: '2x8' },
+                  { name: 'Rosca Martelo', sets: '2x8' },
+                  { section: 'PERNAS' },
+                  { name: 'Panturrilha em Pé', sets: '2x8' }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      'semanal': {
+        title: 'TREINO <span class="highlight">SEMANAL</span>',
+        description: 'Plano de 5 dias focado em grupos musculares específicos',
+        plans: [
+          {
+            name: 'PLANO SEMANAL 5 DIAS',
+            frequency: '5x por semana',
+            tip: '💡 Dica: Cada dia focado num grupo muscular diferente. Excelente para atletas intermédios que querem máxima especialização.',
+            description: 'Segunda a Sexta: Peito · Costas · Pernas · Ombros · Braços',
+            days: [
+              {
+                title: 'SEGUNDA — PEITO & TRÍCEPS',
+                exercises: [
+                  { section: 'PEITO' },
+                  { name: 'Supino Inclinado', sets: '2x8' },
+                  { name: 'Aberturas (Banco)', sets: '2x8' },
+                  { name: 'Chest Press', sets: '2x8' },
+                  { section: 'TRÍCEPS' },
+                  { name: 'Tríceps (Cabo por Cima)', sets: '2x8' },
+                  { name: 'Tríceps Pushdown', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'TERÇA — COSTAS & BÍCEPS',
+                exercises: [
+                  { section: 'COSTAS' },
+                  { name: 'Puxada Frontal (Barra Comprida)', sets: '2x8' },
+                  { name: 'Remada Sentada na Polia', sets: '2x8' },
+                  { section: 'BÍCEPS' },
+                  { name: 'Rosca Direta (Cabo)', sets: '2x8' },
+                  { name: 'Rosca Direta com Halteres', sets: '2x8' },
+                  { name: 'Rosca Martelo', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'QUARTA — PERNAS COMPLETAS',
+                exercises: [
+                  { section: 'QUADRÍCEPS' },
+                  { name: 'Hack Squat', sets: '2x8' },
+                  { name: 'Leg Extension', sets: '2x8' },
+                  { section: 'ISQUIOTIBIAIS' },
+                  { name: 'Leg Curl', sets: '2x8' },
+                  { section: 'GÉMEOS' },
+                  { name: 'Panturrilha em Pé', sets: '2x8' },
+                  { section: 'CORE' },
+                  { name: 'Abdominal', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'QUINTA — OMBROS FOCADO',
+                exercises: [
+                  { section: 'OMBROS (Frontal)' },
+                  { name: 'Press Militar', sets: '2x8' },
+                  { section: 'OMBROS (Médio)' },
+                  { name: 'Elevação Lateral', sets: '2x8' },
+                  { section: 'UPPER BACK' },
+                  { name: 'Remada Sentada na Polia', sets: '2x8' }
+                ]
+              },
+              {
+                title: 'SEXTA — BRAÇOS & ACABAMENTO',
+                exercises: [
+                  { section: 'BÍCEPS' },
+                  { name: 'Rosca Martelo', sets: '2x8' },
+                  { name: 'Rosca Direta (Cabo)', sets: '2x8' },
+                  { name: 'Rosca Direta com Halteres', sets: '2x8' },
+                  { section: 'TRÍCEPS' },
+                  { name: 'Tríceps (Cabo por Cima)', sets: '2x8' },
+                  { name: 'Tríceps Pushdown', sets: '2x8' },
+                  { name: 'Tríceps (Corda)', sets: '2x8' },
+                  { section: 'FINISH' },
+                  { name: 'Panturrilha em Pé', sets: '2x8' }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    // ─────────────────────────────────────────────
+    // FIX: single DOMContentLoaded block
+    // ─────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing workout plans...');
+
+      // Modal close listeners
+      document.querySelector('.video-close')?.addEventListener('click', closeVideoModal);
+
+      document.getElementById('videoModal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeVideoModal();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeVideoModal();
+      });
+
+      // Newsletter
+      document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Obrigado por subscrever!');
+        this.reset();
+      });
+
+      // Header sticky
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Goal card click listeners
+      document.querySelectorAll('.goal-card').forEach(card => {
+        const goal = card.getAttribute('data-goal');
+
+        card.addEventListener('click', function(e) {
+          if (e.target.closest('.btn-primary')) return;
+          showPlans(goal);
+        });
+
+        const button = card.querySelector('.btn-primary');
+        if (button) {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            showPlans(goal);
+          });
+        }
+      });
+
+      // Animate goal cards on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.goal-card').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+        observer.observe(card);
+      });
+
+      console.log('Workout plans initialized!');
+    }); // ← FIX: único DOMContentLoaded, corretamente fechado
+
+    // ─────────────────────────────────────────────
+    // Functions (outside DOMContentLoaded so onclick= in HTML works)
+    // ─────────────────────────────────────────────
+    function showPlans(goal) {
+      const data = workoutPlans[goal];
+      if (!data) { console.error('No data for goal:', goal); return; }
+
+      const container = document.getElementById('workout-plans-container');
+      const goalsGrid = document.querySelector('.goals-grid');
+      const plansTitle = document.getElementById('plans-title');
+      const plansContent = document.getElementById('plans-content');
+
+      plansTitle.innerHTML = data.title;
+
+      document.getElementById('plans-hero').innerHTML = '';
+
+      let plansHTML = `<p style="text-align:center;color:#aaa;margin-bottom:50px;font-size:1.1rem;">${data.description}</p>`;
+
+      data.plans.forEach(plan => {
+        plansHTML += `
+          <div class="workout-plan">
+            <h3>${plan.name}</h3>
+            <p style="color:#aaa;margin-bottom:10px;">${plan.frequency}</p>
+            <p style="color:#888;margin-bottom:${plan.tip ? '15px' : '30px'};font-size:0.95rem;">${plan.description}</p>
+            ${plan.tip ? `<div style="background:rgba(255,107,53,0.08);border-left:3px solid #FF6B35;border-radius:6px;padding:12px 16px;margin-bottom:30px;font-size:0.9rem;color:#ccc;line-height:1.5;">${plan.tip}</div>` : ''}
+            <div class="workout-grid">
+        `;
+
+        plan.days.forEach(day => {
+          plansHTML += `<div class="day-card"><h4>${day.title}</h4><ul class="exercise-list">`;
+          day.exercises.forEach(exercise => {
+            if (exercise.section) {
+              plansHTML += `<li class="exercise-section-header">${exercise.section}</li>`;
+            } else {
+              plansHTML += `
+                <li>
+                  <div class="exercise-name clickable-exercise" data-exercise="${exercise.name}">${exercise.name}</div>
+                  <div class="exercise-details">${exercise.sets}</div>
+                </li>`;
+            }
+          });
+          plansHTML += `</ul></div>`;
+        });
+
+        plansHTML += `</div></div>`;
+      });
+
+      plansContent.innerHTML = plansHTML;
+
+      goalsGrid.style.display = 'none';
+      container.style.display = 'block';
+      document.getElementById('goals-title').style.display = 'none';
+      document.getElementById('goals-subtitle').style.display = 'none';
+
+      // Animate day cards
+      setTimeout(() => {
+        document.querySelectorAll('.day-card').forEach((card, index) => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(30px)';
+          card.style.transition = 'all 0.6s ease';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 100);
+        });
+      }, 100);
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Exercise video click
+      document.querySelectorAll('.exercise-name').forEach(el => {
+        el.addEventListener('click', function() {
+          openVideoModal(this.getAttribute('data-exercise'));
+        });
+      });
+
+      // Update active tab
+      document.querySelectorAll('.type-tab').forEach(tab => tab.classList.remove('active'));
+      const activeTab = document.querySelector(`.type-tab[data-type="${goal}"]`);
+      if (activeTab) activeTab.classList.add('active');
+    }
+
+    function backToGoals() {
+      document.querySelector('.goals-grid').style.display = 'grid';
+      document.getElementById('workout-plans-container').style.display = 'none';
+      document.getElementById('plans-hero').innerHTML = '';
+      document.getElementById('goals-title').style.display = '';
+      document.getElementById('goals-subtitle').style.display = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchWorkoutType(goal) {
+      document.querySelectorAll('.type-tab').forEach(tab => tab.classList.remove('active'));
+      const tab = document.querySelector(`.type-tab[data-type="${goal}"]`);
+      if (tab) tab.classList.add('active');
+
+      const plansContent = document.getElementById('plans-content');
+      if (plansContent) {
+        plansContent.style.opacity = '0';
+        plansContent.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+          showPlans(goal);
+          plansContent.style.opacity = '1';
+        }, 150);
+      } else {
+        showPlans(goal);
+      }
+    }
+
+    function openVideoModal(exerciseName) {
+      const modal = document.getElementById('videoModal');
+      const videoFrame = document.getElementById('videoFrame');
+      const videoTitle = document.getElementById('videoTitle');
+      const videoUrl = exerciseVideos[exerciseName];
+
+      if (videoUrl) {
+        videoTitle.textContent = exerciseName;
+        videoFrame.src = videoUrl;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      } else {
+        alert('Vídeo não disponível para este exercício.');
+      }
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      const videoFrame = document.getElementById('videoFrame');
+      modal.style.display = 'none';
+      videoFrame.src = '';
+      document.body.style.overflow = 'auto';
+    }
+  </script>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-content">
+
+      <!-- Col 1: Marca -->
+      <div>
+        <div class="footer-logo">ALL<span>FIT</span></div>
+        <p class="footer-tagline">A tua plataforma completa de fitness, nutrição e performance. Evolui todos os dias.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.28 8.28 0 0 0 4.84 1.55V6.79a4.86 4.86 0 0 1-1.07-.1z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Plataforma -->
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="treinos.html">Treinos</a></li>
+          <li><a href="nutricao.html">Nutrição</a></li>
+          <li><a href="suplementos.html">Suplementos</a></li>
+          <li><a href="Progresso.html">Progresso</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Recursos -->
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="calculadora-imc.html">Calculadora IMC</a></li>
+        </ul>
+      </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 AllFIT · Todos os direitos reservados</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      btn.textContent = '✓ Subscrito!';
+      btn.style.background = 'linear-gradient(135deg,#00c97a,#00e08a)';
+      setTimeout(() => { btn.textContent = 'Subscrever'; btn.style.background = ''; this.reset(); }, 3000);
+    });
+  </script>
+</body>
+</html>

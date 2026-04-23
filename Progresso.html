@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="App de tracking fitness - Acompanhe treinos, nutrição e progresso - AllFIT">
+  <title>AllFIT - Fitness Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="bg-animated"></div>
+
+  <header>
+    <nav>
+      <div class="logo" onclick="window.location.href='index.html'">ALLFIT</div>
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="treinos.html">Treinos</a></li>
+        <li><a href="nutricao.html">Nutrição</a></li>
+        <li><a href="suplementos.html">Suplementos</a></li>
+        <li><a href="Progresso.html" class="active">Progresso</a></li>
+        <li><a href="calculadora-imc.html">Calc. IMC</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="app" class="page active">
+
+    <!-- Hero Banner -->
+    <div class="prog-hero">
+      <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1800&h=500&fit=crop&q=80" alt="Progressão no Ginásio" class="prog-hero-img">
+      <div class="prog-hero-overlay">
+        <h1>A TUA <span>PROGRESSÃO</span></h1>
+        <p>Cada treino conta. Cada dia é uma vitória.</p>
+      </div>
+    </div>
+
+    <div class="app-container">
+      <section class="section">
+
+        <!-- Título + Perfil -->
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <div class="profile-info">
+              <h3 id="userName">Atleta AllFIT</h3>
+              <p class="profile-streak">🔥 <span id="streakDays">0</span> dias consecutivos</p>
+            </div>
+            <button class="btn-edit" onclick="editProfile()" title="Editar perfil">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+            </button>
+          </div>
+          <div class="profile-stats">
+            <div class="stat-box">
+              <span class="stat-value" id="totalWorkouts">0</span>
+              <span class="stat-label">Treinos Totais</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-value" id="totalCalories">0</span>
+              <span class="stat-label">Calorias Queimadas</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-value" id="avgDuration">0</span>
+              <span class="stat-label">Min Médios/Treino</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid: Ações rápidas + Resumo de hoje -->
+        <div class="dashboard-grid">
+
+          <!-- Quick Actions -->
+          <div class="quick-actions-card">
+            <h3 class="card-section-label">AÇÕES RÁPIDAS</h3>
+            <div class="quick-actions">
+              <button class="action-btn" onclick="showWorkoutLog()">
+                <span class="action-icon">🏋️</span>
+                <span class="action-text">Registar Treino</span>
+              </button>
+              <button class="action-btn" onclick="showMealLog()">
+                <span class="action-icon">🍽️</span>
+                <span class="action-text">Registar Refeição</span>
+              </button>
+              <button class="action-btn" onclick="showWeightLog()">
+                <span class="action-icon">⚖️</span>
+                <span class="action-text">Registar Peso</span>
+              </button>
+              <button class="action-btn" onclick="showWaterLog()">
+                <span class="action-icon">💧</span>
+                <span class="action-text">Registar Água</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Today's Summary -->
+          <div class="today-summary">
+            <h3>📅 HOJE — <span id="todayDate"></span></h3>
+            <div class="summary-grid">
+              <div class="summary-card">
+                <div class="summary-icon">🏋️</div>
+                <span class="summary-label">Treino</span>
+                <span class="summary-value" id="todayWorkout">Não registado</span>
+              </div>
+              <div class="summary-card">
+                <div class="summary-icon">🔥</div>
+                <span class="summary-label">Calorias</span>
+                <span class="summary-value"><span id="todayCalories">0</span> kcal</span>
+              </div>
+              <div class="summary-card">
+                <div class="summary-icon">💧</div>
+                <span class="summary-label">Água</span>
+                <span class="summary-value"><span id="todayWater">0</span>L / 3L</span>
+                <div class="water-progress">
+                  <div class="water-bar" id="waterBar"></div>
+                </div>
+              </div>
+              <div class="summary-card">
+                <div class="summary-icon">⚖️</div>
+                <span class="summary-label">Peso Atual</span>
+                <span class="summary-value"><span id="currentWeight">--</span> kg</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Progress Chart -->
+        <div class="chart-container">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:16px; margin-bottom:24px; text-align:center;">
+            <h3 style="font-size:0.82rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1.2px; margin:0;">📈 EVOLUÇÃO SEMANAL</h3>
+            <div class="chart-tabs">
+              <button class="chart-tab active" onclick="switchChart('workouts', this)">Treinos</button>
+              <button class="chart-tab" onclick="switchChart('weight', this)">Peso</button>
+              <button class="chart-tab" onclick="switchChart('calories', this)">Calorias</button>
+            </div>
+          </div>
+          <div class="chart">
+            <div class="chart-bars" id="chartBars"></div>
+          </div>
+        </div>
+
+        <!-- History Log -->
+        <div class="history-log">
+          <div class="history-header">
+            <h3>📋 HISTÓRICO DE ATIVIDADES</h3>
+            <button class="btn-clear" onclick="clearHistory()">Limpar Tudo</button>
+          </div>
+          <div class="history-list" id="historyList">
+            <p class="empty-state">Nenhum registo ainda. Começa a registar!</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <!-- Modal: Treino -->
+  <div class="modal" id="workoutModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🏋️ Registar Treino</h3>
+        <button class="modal-close" onclick="closeModal('workoutModal')">&times;</button>
+      </div>
+      <form id="workoutForm" onsubmit="logWorkout(event)">
+        <div class="form-group">
+          <label>Tipo de Treino</label>
+          <select name="workoutType" required>
+            <option value="">Selecione...</option>
+            <option value="PPL">PPL (Push / Pull / Legs)</option>
+            <option value="Upper/Lower">Upper / Lower</option>
+            <option value="Full-Body">Full-Body</option>
+            <option value="Híbrido">Híbrido</option>
+            <option value="Semanal">Semanal</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Duração (min)</label>
+            <input type="number" name="duration" min="5" max="300" required placeholder="60">
+          </div>
+          <div class="form-group">
+            <label>Calorias</label>
+            <input type="number" name="calories" min="10" max="2000" required placeholder="400">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Notas (opcional)</label>
+          <textarea name="notes" rows="2" placeholder="Como foi o treino?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">💪 Registar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Refeição -->
+  <div class="modal" id="mealModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🍽️ Registar Refeição</h3>
+        <button class="modal-close" onclick="closeModal('mealModal')">&times;</button>
+      </div>
+      <form id="mealForm" onsubmit="logMeal(event)">
+        <div class="form-group">
+          <label>Tipo de Refeição</label>
+          <select name="mealType" required>
+            <option value="">Selecione...</option>
+            <option value="Pequeno-almoço">Pequeno-almoço</option>
+            <option value="Lanche Manhã">Lanche Manhã</option>
+            <option value="Almoço">Almoço</option>
+            <option value="Lanche Tarde">Lanche Tarde</option>
+            <option value="Jantar">Jantar</option>
+            <option value="Ceia">Ceia</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <input type="text" name="description" placeholder="Ex: Frango com arroz integral" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Calorias</label>
+            <input type="number" name="calories" min="1" max="2000" required placeholder="500">
+          </div>
+          <div class="form-group">
+            <label>Proteínas (g)</label>
+            <input type="number" name="protein" min="0" max="200" placeholder="40">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">🍽️ Registar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Peso -->
+  <div class="modal" id="weightModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚖️ Registar Peso</h3>
+        <button class="modal-close" onclick="closeModal('weightModal')">&times;</button>
+      </div>
+      <form id="weightForm" onsubmit="logWeight(event)">
+        <div class="form-group">
+          <label>Peso Atual (kg)</label>
+          <input type="number" name="weight" step="0.1" min="30" max="300" required placeholder="75.0">
+        </div>
+        <div class="form-group">
+          <label>Notas (opcional)</label>
+          <textarea name="notes" rows="2" placeholder="Como se sente?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">⚖️ Registar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Água -->
+  <div class="modal" id="waterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>💧 Registar Água</h3>
+        <button class="modal-close" onclick="closeModal('waterModal')">&times;</button>
+      </div>
+      <form id="waterForm" onsubmit="logWater(event)">
+        <div class="form-group">
+          <label>Quantidade</label>
+          <div class="water-quick-btns">
+            <button type="button" class="water-quick" onclick="setWaterAmount(0.25)">250ml</button>
+            <button type="button" class="water-quick" onclick="setWaterAmount(0.5)">500ml</button>
+            <button type="button" class="water-quick" onclick="setWaterAmount(1)">1L</button>
+          </div>
+          <input type="number" name="amount" id="waterAmount" step="0.1" min="0.1" max="5" required placeholder="0.5">
+        </div>
+        <button type="submit" class="btn btn-primary">💧 Registar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Perfil -->
+  <div class="modal" id="profileModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>✏️ Editar Perfil</h3>
+        <button class="modal-close" onclick="closeModal('profileModal')">&times;</button>
+      </div>
+      <form id="profileForm" onsubmit="saveProfile(event)">
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" name="name" id="profileName" required placeholder="O teu nome">
+        </div>
+        <div class="form-group">
+          <label>Peso Inicial (kg)</label>
+          <input type="number" name="initialWeight" id="profileWeight" step="0.1" min="30" max="300" placeholder="75.0">
+        </div>
+        <div class="form-group">
+          <label>Objetivo</label>
+          <select name="goal" id="profileGoal">
+            <option value="emagrecimento">Emagrecimento</option>
+            <option value="hipertrofia">Hipertrofia</option>
+            <option value="manutencao">Manutenção</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Perfil</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-content">
+
+      <!-- Col 1: Marca -->
+      <div>
+        <div class="footer-logo">ALL<span>FIT</span></div>
+        <p class="footer-tagline">A tua plataforma completa de fitness, nutrição e performance. Evolui todos os dias.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.28 8.28 0 0 0 4.84 1.55V6.79a4.86 4.86 0 0 1-1.07-.1z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Plataforma -->
+      <div class="footer-col">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="treinos.html">Treinos</a></li>
+          <li><a href="nutricao.html">Nutrição</a></li>
+          <li><a href="suplementos.html">Suplementos</a></li>
+          <li><a href="Progresso.html">Progresso</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Recursos -->
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="calculadora-imc.html">Calculadora IMC</a></li>
+        </ul>
+      </div>
+
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 AllFIT · Todos os direitos reservados</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      btn.textContent = '✓ Subscrito!';
+      btn.style.background = 'linear-gradient(135deg,#00c97a,#00e08a)';
+      setTimeout(() => { btn.textContent = 'Subscrever'; btn.style.background = ''; this.reset(); }, 3000);
+    });
+  </script>
+
+  <!-- ✅ CORRIGIDO: era app.js, agora é Progresso.js -->
+  <script src="Progresso.js"></script>
+</body>
+</html>
